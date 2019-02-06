@@ -1225,7 +1225,7 @@ ifeq ($(shell expr $(CC_VERNUM) '>' 490), 1)
     CXXFLAGS += -fno-threadsafe-statics -flto -fno-devirtualize -fdiagnostics-color=$(DIAGNOSTICS_COLOR_WHEN)
     CFLAGS   += -flto -fno-fat-lto-objects -fdiagnostics-color=$(DIAGNOSTICS_COLOR_WHEN)
 endif
-LDFLAGS       += -$(MCU_FLAG_NAME)=$(MCU) -Wl,--gc-sections -O$(OPTIMIZATION_LEVEL)
+LDFLAGS       += -$(MCU_FLAG_NAME)=$(MCU) -Wl,--gc-sections $(OPTIMIZATION_FLAGS)
 ifeq ($(shell expr $(CC_VERNUM) '>' 490), 1)
 		LDFLAGS += -flto -fuse-linker-plugin
 endif
